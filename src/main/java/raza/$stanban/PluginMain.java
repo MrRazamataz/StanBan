@@ -16,10 +16,22 @@ public class PluginMain extends JavaPlugin implements Listener {
 		instance = this;
 		getDataFolder().mkdir();
 		getServer().getPluginManager().registerEvents(this, this);
+		try {
+			PluginMain.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&',
+					"[&cStanBan&r] &aPlugin has been enabled and is active. Ready!"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void onDisable() {
+		try {
+			PluginMain.getInstance().getLogger()
+					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &cPlugin has been disabled."));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -71,18 +83,20 @@ public class PluginMain extends JavaPlugin implements Listener {
 	}
 
 	@EventHandler(priority = EventPriority.HIGHEST)
-	public void onPlayerJoinEvent1(org.bukkit.event.player.PlayerJoinEvent event) throws Exception {
-		if ((String.valueOf(event.getPlayer()).contains(String.valueOf("Dream"))
-				|| String.valueOf(event.getPlayer()).contains(String.valueOf("NotFound")))) {
+	public void event1(org.bukkit.event.player.PlayerJoinEvent event) throws Exception {
+		if ((((boolean) String.valueOf(((org.bukkit.entity.Player) event.getPlayer()))
+				.contains(String.valueOf("Dream")))
+				|| ((boolean) String.valueOf(((org.bukkit.entity.Player) event.getPlayer()))
+						.contains(String.valueOf("NotFound"))))) {
+			((org.bukkit.BanList) org.bukkit.Bukkit
+					.getBanList(((org.bukkit.BanList.Type) org.bukkit.BanList.Type.NAME))).addBan(
+							((java.lang.String) ((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event
+									.getPlayer())).getName()),
+							ChatColor.translateAlternateColorCodes('&',
+									"&cYou have been detected as a Dream or GeorgeNotFound stan!"),
+							((java.util.Date) null), ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r]"));
 			org.bukkit.Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&',
-					"&a&lA stan was detcted and was banned from the server!"));
-			org.bukkit.Bukkit.getBanList(org.bukkit.BanList.Type.NAME).addBan(
-					((org.bukkit.command.CommandSender) (Object) event.getPlayer()).getName(),
-					ChatColor.translateAlternateColorCodes('&',
-							"&cYou have been detected as a Dream or GeorgeNotFound stan!"),
-					((java.util.Date) null), ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r]"));
-			event.getPlayer().kickPlayer(ChatColor.translateAlternateColorCodes('&',
-					"&cYou have been detected as a Dream or GeorgeNotFound stan!"));
+					"[&cStanBan&r] &a&lA stan was detected and was banned from the server!"));
 		}
 	}
 }

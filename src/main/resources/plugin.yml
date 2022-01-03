@@ -3,7 +3,7 @@ version: "0.1"
 main: "raza.$stanban.PluginMain"
 api-version: 1.13
 author: "MrRazamataz"
-description: "Ban stans from your server with ease"
+description: "Ban stans automatically"
 website: "mrrazamataz.ga"
 commands:
 permissions:
