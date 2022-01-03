@@ -28,8 +28,8 @@ stanban:
 Under `names` you can add as many strings that you would like stan usernames to contain. 
 For example, in the above config, the name "TestingNotFound" would be detected as a stan.
 
-`ban-message` is the message that the stan is banned with.
-`chat-broadcast-message` is the message in chat that is broadcast when a stan is banned
+`ban-message` is the message that the stan is banned with.  
+`chat-broadcast-message` is the message in chat that is broadcast when a stan is banned  
 
 ## Why?
 
