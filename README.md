@@ -5,7 +5,7 @@ Ban stans from your server automatically.
 
 Put the plugin in your server's plugin files.  
 
-## Infomation:
+## Information:
 
 ### Permissions:
 `stanban.reload` - gives permisson to reload the plugin's config file, duh!
@@ -14,7 +14,7 @@ Put the plugin in your server's plugin files.
 `/stanbanreload` (alias: `/sbreload`) - reloads the plugin's config file, duh!
 
 ### Config:
-The `config.yml` is pretty self-explanatory but here is a basic rundowm:
+The `config.yml` is pretty self-explanatory but here is a basic rundown:
 ```yml
 stanban: 
   names: # here is a list of strings that a username should contain in order to be detected as a stan
