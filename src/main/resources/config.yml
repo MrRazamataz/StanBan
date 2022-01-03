@@ -1,0 +1,7 @@
+stanban: 
+  names: # here is a list of strings that a username should contain in order to be detected as a stan
+    - Dream
+    - NotFound
+  ban-message: "&cYou have been detected as a Dream or GeorgeNotFound stan!"
+  chat-broadcast-message: "[&cStanBan&r] &a&lA stan was detected and was banned from the server!"
+  

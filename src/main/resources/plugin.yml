@@ -1,9 +1,14 @@
 name: "StanBan"
-version: "0.1"
+version: "1.0.0"
 main: "raza.$stanban.PluginMain"
 api-version: 1.13
 author: "MrRazamataz"
 description: "Ban stans automatically"
 website: "mrrazamataz.ga"
 commands:
+  stanbanreload:
+    aliases: [sbreload]
+    description: "Reloads StanBan's config file"
+    permission: "stanban.reload"
+    permission-message: "You do not have permisson for that command!"
 permissions:
