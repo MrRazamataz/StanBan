@@ -18,22 +18,14 @@ public class PluginMain extends JavaPlugin implements Listener {
 		getServer().getPluginManager().registerEvents(this, this);
 		saveDefaultConfig();
 		try {
-			PluginMain.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&',
-					"[&cStanBan&r] &aPlugin has been enabled and is active. Ready!"));
 			PluginMain.getInstance().getLogger()
-					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &6Running version: 1.0.0"));
+					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &6Running version: 1.1.0"));
 			PluginMain.getInstance().getLogger()
 					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] Loading config..."));
 			PluginMain.getInstance().getLogger()
-					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] Loading stan strings..."));
-			for (Object FINAL_loopValue1 : ((java.util.List) (Object) PluginMain.getInstance().getConfig()
-					.get("stanban.names"))) {
-				PluginMain.getInstance().getLogger().info(String.valueOf(FINAL_loopValue1));
-			}
-			PluginMain.getInstance().getLogger()
-					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] Stan strings loaded!"));
-			PluginMain.getInstance().getLogger()
 					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] Config loaded!"));
+			PluginMain.getInstance().getLogger().info(ChatColor.translateAlternateColorCodes('&',
+					"[&cStanBan&r] &aPlugin has been enabled and is active. Ready!"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -60,6 +52,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 										ChatColor.translateAlternateColorCodes('&',
 												"[&cStanBan&r] &aConfig reloaded!")),
 								((java.lang.String) null), ((int) (0d)), ((int) (100d)), ((int) (0d)));
+				PluginMain.getInstance().getLogger().severe(
+						ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &aThe config has been reloaded!"));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -133,6 +127,15 @@ public class PluginMain extends JavaPlugin implements Listener {
 					org.bukkit.Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', String
 							.valueOf(PluginMain.getInstance().getConfig().get("stanban.chat-broadcast-message"))));
 					$24c5b3a5b3df7260f1023d2b3f1dcdcc = ((java.lang.Object) (Object) false);
+					if (((boolean) (Object) PluginMain.getInstance().getConfig().get("actions.enabled"))) {
+						for (Object FINAL_loopValue2 : ((java.util.List) (Object) PluginMain.getInstance().getConfig()
+								.get("actions.on-stan-join-commands"))) {
+							org.bukkit.Bukkit.dispatchCommand(
+									((org.bukkit.command.CommandSender) (Object) ((org.bukkit.command.ConsoleCommandSender) org.bukkit.Bukkit
+											.getConsoleSender())),
+									String.valueOf(FINAL_loopValue2));
+						}
+					}
 				}
 			}
 		}
