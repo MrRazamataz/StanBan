@@ -18,6 +18,9 @@ The `config.yml` is pretty self-explanatory but here is a basic rundown:
 
 *Using `%player%` throughout the config will replace it with the banned players name!*  
 ```yml
+# StanBan by MrRazamataz. This config file was generated for v1.1.1 but should work on older/newer versions.
+# Using %player%, you can represent the username of the player whos being banned.
+
 stanban: 
   names: # here is a list of strings that a username should contain in order to be detected as a stan
     - Dream
