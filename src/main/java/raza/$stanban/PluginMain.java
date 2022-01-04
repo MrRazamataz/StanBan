@@ -19,7 +19,7 @@ public class PluginMain extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		try {
 			PluginMain.getInstance().getLogger()
-					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &6Running version: 1.1.0"));
+					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &6Running version: 1.1.1"));
 			PluginMain.getInstance().getLogger()
 					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] Loading config..."));
 			PluginMain.getInstance().getLogger()
@@ -117,15 +117,24 @@ public class PluginMain extends JavaPlugin implements Listener {
 						.getBanList(((org.bukkit.BanList.Type) org.bukkit.BanList.Type.NAME))).addBan(
 								((java.lang.String) ((org.bukkit.command.CommandSender) (Object) ((org.bukkit.entity.Player) event
 										.getPlayer())).getName()),
-								ChatColor.translateAlternateColorCodes('&',
-										String.valueOf(
-												PluginMain.getInstance().getConfig().get("stanban.ban-message"))),
+								ChatColor.translateAlternateColorCodes('&', ((java.lang.String) String
+										.valueOf(PluginMain.getInstance().getConfig().get("stanban.ban-message"))
+										.replaceAll("%player%",
+												((java.lang.String) ((org.bukkit.entity.Player) event.getPlayer())
+														.getDisplayName())))),
 								((java.util.Date) null), ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r]"));
 				((org.bukkit.entity.Player) event.getPlayer()).kickPlayer(ChatColor.translateAlternateColorCodes('&',
-						String.valueOf(PluginMain.getInstance().getConfig().get("stanban.ban-message"))));
+						((java.lang.String) String
+								.valueOf(PluginMain.getInstance().getConfig().get("stanban.ban-message")).replaceAll(
+										"%player%", ((java.lang.String) ((org.bukkit.entity.Player) event.getPlayer())
+												.getDisplayName())))));
 				if (((boolean) (Object) $24c5b3a5b3df7260f1023d2b3f1dcdcc)) {
-					org.bukkit.Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', String
-							.valueOf(PluginMain.getInstance().getConfig().get("stanban.chat-broadcast-message"))));
+					org.bukkit.Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&',
+							((java.lang.String) String
+									.valueOf(PluginMain.getInstance().getConfig().get("stanban.chat-broadcast-message"))
+									.replaceAll("%player%",
+											((java.lang.String) ((org.bukkit.entity.Player) event.getPlayer())
+													.getDisplayName())))));
 					$24c5b3a5b3df7260f1023d2b3f1dcdcc = ((java.lang.Object) (Object) false);
 					if (((boolean) (Object) PluginMain.getInstance().getConfig().get("actions.enabled"))) {
 						for (Object FINAL_loopValue2 : ((java.util.List) (Object) PluginMain.getInstance().getConfig()
@@ -133,7 +142,9 @@ public class PluginMain extends JavaPlugin implements Listener {
 							org.bukkit.Bukkit.dispatchCommand(
 									((org.bukkit.command.CommandSender) (Object) ((org.bukkit.command.ConsoleCommandSender) org.bukkit.Bukkit
 											.getConsoleSender())),
-									String.valueOf(FINAL_loopValue2));
+									((java.lang.String) String.valueOf(FINAL_loopValue2).replaceAll("%player%",
+											((java.lang.String) ((org.bukkit.entity.Player) event.getPlayer())
+													.getDisplayName()))));
 						}
 					}
 				}

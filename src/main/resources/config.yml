@@ -1,12 +1,15 @@
+# StanBan by MrRazamataz. This config file was generated for v1.1.1 but should work on older/newer versions.
+# Using %player%, you can represent the username of the player whos being banned.
+
 stanban: 
   names: # here is a list of strings that a username should contain in order to be detected as a stan
     - Dream
     - NotFound
   ban-message: "&cYou have been detected as a Dream or GeorgeNotFound stan!"
-  chat-broadcast-message: "[&cStanBan&r] &a&lA stan was detected and was banned from the server!"
+  chat-broadcast-message: "[&cStanBan&r] &a&l%player% was detected as a stan and was banned from the server!"
   
 actions:
   on-stan-join-commands:
-    - "say hello there guys!"
-    - "discord action command or something"
+    - "say hello there guys, %player% just got banned for being a stan!"
+    - "discord action command or something %player%"
   enabled: false
