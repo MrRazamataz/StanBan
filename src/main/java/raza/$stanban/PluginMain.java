@@ -19,7 +19,8 @@ public class PluginMain extends JavaPlugin implements Listener {
 		saveDefaultConfig();
 		try {
 			PluginMain.getInstance().getLogger()
-					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &6Running version: 1.1.1"));
+					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &6Running version: 1.1.0"));
+			new Metrics(PluginMain.getInstance(), ((int) (13846d)));
 			PluginMain.getInstance().getLogger()
 					.info(ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] Loading config..."));
 			PluginMain.getInstance().getLogger()
@@ -46,13 +47,15 @@ public class PluginMain extends JavaPlugin implements Listener {
 		if (command.getName().equalsIgnoreCase("stanbanreload")) {
 			try {
 				PluginMain.getInstance().reloadConfig();
-				((org.bukkit.entity.Player) (Object) commandSender)
-						.sendTitle(
-								ChatColor.translateAlternateColorCodes('&',
-										ChatColor.translateAlternateColorCodes('&',
-												"[&cStanBan&r] &aConfig reloaded!")),
-								((java.lang.String) null), ((int) (0d)), ((int) (100d)), ((int) (0d)));
-				PluginMain.getInstance().getLogger().severe(
+				if ((commandSender instanceof org.bukkit.entity.Player)) {
+					((org.bukkit.entity.Player) (Object) commandSender)
+							.sendTitle(
+									ChatColor.translateAlternateColorCodes('&',
+											ChatColor.translateAlternateColorCodes('&',
+													"[&cStanBan&r] &aConfig reloaded!")),
+									((java.lang.String) null), ((int) (0d)), ((int) (100d)), ((int) (0d)));
+				}
+				PluginMain.getInstance().getLogger().info(
 						ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &aThe config has been reloaded!"));
 			} catch (Exception e) {
 				e.printStackTrace();
