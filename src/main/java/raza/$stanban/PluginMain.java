@@ -44,26 +44,28 @@ public class PluginMain extends JavaPlugin implements Listener {
         }
     }
 
-    @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String label, String[] commandArgs) {
-        if (command.getName().equalsIgnoreCase("stanbanreload")) {
-            try {
-                PluginMain.getInstance().reloadConfig();
-                ((org.bukkit.entity.Player) commandSender)
-                        .sendTitle(
-                                ChatColor.translateAlternateColorCodes('&',
-                                        ChatColor.translateAlternateColorCodes('&',
-                                                "[&cStanBan&r] &aConfig reloaded!")),
-                                null, ((int) (0d)), ((int) (100d)), ((int) (0d)));
-                PluginMain.getInstance().getLogger().severe(
-                        ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &aThe config has been reloaded!"));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return true;
-        }
-        return true;
-    }
+	@Override
+	public boolean onCommand(CommandSender commandSender, Command command, String label, String[] commandArgs) {
+		if (command.getName().equalsIgnoreCase("stanbanreload")) {
+			try {
+				PluginMain.getInstance().reloadConfig();
+				if ((commandSender instanceof org.bukkit.entity.Player)) {
+					((org.bukkit.entity.Player) (Object) commandSender)
+							.sendTitle(
+									ChatColor.translateAlternateColorCodes('&',
+											ChatColor.translateAlternateColorCodes('&',
+													"[&cStanBan&r] &aConfig reloaded!")),
+									((java.lang.String) null), ((int) (0d)), ((int) (100d)), ((int) (0d)));
+				}
+				PluginMain.getInstance().getLogger().info(
+						ChatColor.translateAlternateColorCodes('&', "[&cStanBan&r] &aThe config has been reloaded!"));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return true;
+		}
+		return true;
+	}
 
     public static List createList(Object obj) {
         if (obj instanceof List) {
