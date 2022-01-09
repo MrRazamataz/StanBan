@@ -1,5 +1,5 @@
 name: "StanBan"
-version: "1.1.2"
+version: "1.1.3"
 main: "raza.$stanban.PluginMain"
 api-version: 1.13
 author: "MrRazamataz"
@@ -10,5 +10,9 @@ commands:
     aliases: [sbreload]
     description: "Reloads StanBan's config file"
     permission: "stanban.reload"
-    permission-message: "[§cStanBan§r] §cYou do not have permisson for that command!"
+    permission-message: "[§cStanBan§r] §cYou do not have permisson for that command! You need the permisson stanban.reload"
+  unbanallstans:
+    description: "Unban all of the players that StanBan has banned!"
+    permission: "stanban.unbanall"
+    permission-message: "[§cStanBan§r] §cYou do not have permisson for that command! You need the permisson stanban.unbanall"
 permissions:
