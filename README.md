@@ -18,12 +18,12 @@ If there is a match:
  
 
 ### Permissions:
-`stanban.reload` - gives permisson to reload the plugin's config file, duh!
-`stanban.unbanall` - gives permisson to run the command `/unbanallstans`.
+`stanban.reload` - gives permisson to reload the plugin's config file, duh!  
+`stanban.unbanall` - gives permisson to run the command `/unbanallstans`.  
 
 ### Commands:
-`/stanbanreload` (alias: `/sbreload`) - reloads the plugin's config file, duh!
-`/unbannallstans` - unban all players that the plugin has banned for being a stan (the players are stored in `banned.txt`).
+`/stanbanreload` (alias: `/sbreload`) - reloads the plugin's config file, duh!  
+`/unbannallstans` - unban all players that the plugin has banned for being a stan (the players are stored in `banned.txt`).  
 
 ### Config:
 The `config.yml` is pretty self-explanatory but here is a basic rundown:
