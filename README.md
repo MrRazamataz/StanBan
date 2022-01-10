@@ -7,11 +7,23 @@ Put the plugin in your server's plugin files.
 
 ## Information:
 
+### Behaviour:
+When a player joins, the plugin reads their username and searhes it for string matches that are set in the config.  
+If there is a match:
+  * The plugin kicks them
+  * A ban is added
+  * Message sent in chat
+  * If you have commands to be run enabled in config, they will be run
+  * Their username is added to `banned.txt` for use later with the `/unbanallstans` command
+ 
+
 ### Permissions:
 `stanban.reload` - gives permisson to reload the plugin's config file, duh!
+`stanban.unbanall` - gives permisson to run the command `/unbanallstans`.
 
 ### Commands:
 `/stanbanreload` (alias: `/sbreload`) - reloads the plugin's config file, duh!
+`/unbannallstans` - unban all players that the plugin has banned for being a stan (the players are stored in `banned.txt`).
 
 ### Config:
 The `config.yml` is pretty self-explanatory but here is a basic rundown:
