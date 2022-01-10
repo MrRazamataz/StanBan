@@ -14,7 +14,7 @@ If there is a match:
   * A ban is added
   * Message sent in chat
   * If you have commands to be run enabled in config, they will be run
-  * Their username is added to `banned.txt` for use later with the `/unbanallstans` command
+  * Their username is added to `banned.txt` for use later with the `/unbanallstans` command if you would like  
  
 
 ### Permissions:
